@@ -39,7 +39,7 @@ Displays the help guide.
 Tells you which installed version you are using.
 .TP
 .B --store-license value
-Set the license key to value and store on hard drive. (license is stored in ~/.config/RAWcooked/Config.txt on Linux/Mac, %APPDATA%/RAWcooked/Config.txt on Windows)
+Set the license key to value and store on hard drive. (License is stored in ~/.config/RAWcooked/Config.txt on Linux/Mac, %APPDATA%/RAWcooked/Config.txt on Windows)
 .TP
 .B --show-license
 Displays information about the installed license.
@@ -207,6 +207,10 @@ Default value is \fI${Input}.framemd5\fR.
 Do not compute of framemd5 of input frames. (see above)."
 .br
 Is default.
+.TP
+.B --accept-gaps
+Use if there are missing files within the sequence numbering. RAWcooked creates a concatenated list of all files ensuring the sequence can be encoded.
+.TP
 .SS INPUT RELATED OPTIONS
 .TP
 .B --file
@@ -258,6 +262,15 @@ The default value is \fI1\fR.
 If the video encoding format is \fIffv1\fR, you can set the multithreaded encoding slices to \fIvalue\fR: any integer over 1 (it is recommended to use a figure divisible by your workstations CPU core processors such as 2, 4, 6, 9, 16, 24...).
 .br
 The default value is variable between \fI16\fR and \fI512\fR, depending on the video frame size and depth.
+.SH EXAMPLE: Encoding using the --all action
+.B rawcooked --all /path_to_DPX_sequence/
+Joanna description here
+.SH EXAMPLE: Custom encoding with export of console messages to log file
+.B rawcooked --check --coherency --conch --hash --encode -framerate 24 /path_to_DPX_sequence/ &>> RAWcooked_encoding.log
+Joanna description here
+.SH EXAMPLE: Decoding using --all action
+.B rawcooked -all <file.mkv>
+Joanna description here
 .SH COPYRIGHT
 Copyright (c) 2018-2020 MediaArea.net SARL & AV Preservation by reto.ch
 .SH LICENSE
